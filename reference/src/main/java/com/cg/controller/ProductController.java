@@ -27,13 +27,13 @@ public class ProductController {
 		return service.getAll();
 	}
 	
-	@PostMapping(value="/add", produces = {"application/json","application/xml","text/html"})
+	@PostMapping(value="/add", consumes = {"application/json","application/xml","text/html"}, produces = {"application/json","application/xml","text/html"})
 	public String add(@RequestBody Product product) {
 		service.create(product);
 		return "product added";
 	}
 	
-	@PostMapping(value="/update", produces = {"application/json","application/xml","text/html"})
+	@PostMapping(value="/update", consumes = {"application/json","application/xml","text/html"}, produces = {"application/json","application/xml","text/html"})
 	public String update(@RequestBody Product product) {
 		service.update(product);
 		return "updated";
